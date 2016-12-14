@@ -1,0 +1,35 @@
+os: linux
+language: python
+cache: pip
+sudo: required
+services:
+  - docker
+env:
+  global:
+    - CONAN_UPLOAD: 1
+    - CONAN_REFERENCE: "nasm/2.12.02"
+    - CONAN_USERNAME: "Mikayex"
+    - CONAN_CHANNEL: "testing"
+    - CONAN_TOTAL_PAGES: 2
+  matrix:
+    - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
+    - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=2 CONAN_USE_DOCKER=1
+
+matrix:
+   include:
+       - os: osx
+         osx_image: xcode8 # apple-clang 8
+         language: generic
+         env: CONAN_CURRENT_PAGE=1
+       - os: osx
+         osx_image: xcode8 # apple-clang 8
+         language: generic
+         env: CONAN_CURRENT_PAGE=2
+
+install:
+  - chmod +x .travis/install.sh
+  - ./.travis/install.sh
+
+script:
+  - chmod +x .travis/run.sh
+  - ./.travis/run.sh
