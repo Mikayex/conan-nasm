@@ -1,7 +1,7 @@
 from conans import ConanFile, errors
 import os
 
-channel = os.getenv("CONAN_CHANNEL", "testing")
+channel = os.getenv("CONAN_CHANNEL", "stable")
 username = os.getenv("CONAN_USERNAME", "Mikayex")
 
 

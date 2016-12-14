@@ -9,7 +9,7 @@ env:
     - CONAN_UPLOAD: 1
     - CONAN_REFERENCE: "nasm/2.12.02"
     - CONAN_USERNAME: "Mikayex"
-    - CONAN_CHANNEL: "testing"
+    - CONAN_CHANNEL: "stable"
     - CONAN_TOTAL_PAGES: 2
   matrix:
     - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1
